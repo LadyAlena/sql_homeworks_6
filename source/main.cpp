@@ -12,9 +12,9 @@ class Stock;
 
 class Book {
 public:
-	std::string									title{};
-	Wt::Dbo::ptr<Publisher>						publisher{};
-	Wt::Dbo::collection < Wt::Dbo::ptr<Stock>>	stocks;
+	std::string	title{};
+	Wt::Dbo::ptr<Publisher>	publisher{};
+	Wt::Dbo::collection < Wt::Dbo::ptr<Stock>> stocks;
 
 	template <typename Action>
 	void persist(Action& a) {
@@ -26,8 +26,8 @@ public:
 
 class Publisher {
 public:
-	std::string									name{};
-	Wt::Dbo::collection<Wt::Dbo::ptr<Book>>		books{};
+	std::string	name{};
+	Wt::Dbo::collection<Wt::Dbo::ptr<Book>>	books{};
 
 	template <typename Action>
 	void persist(Action& a) {
@@ -38,8 +38,8 @@ public:
 
 class Shop {
 public:
-	std::string									name{};
-	Wt::Dbo::collection <Wt::Dbo::ptr<Stock>>	stocks;
+	std::string	name{};
+	Wt::Dbo::collection <Wt::Dbo::ptr<Stock>> stocks;
 
 	template <typename Action>
 	void persist(Action& a) {
@@ -50,10 +50,10 @@ public:
 
 class Sale {
 public:
-	std::string									price{};
-	std::string									data_sale{};
-	Wt::Dbo::ptr<Stock>							stock{};
-	int											count{};
+	std::string	price{};
+	std::string	data_sale{};
+	Wt::Dbo::ptr<Stock>	stock{};
+	int	count{};
 
 	template <typename Action>
 	void persist(Action& a) {
@@ -66,10 +66,10 @@ public:
 
 class Stock {
 public:
-	Wt::Dbo::ptr<Book>							book{};
-	Wt::Dbo::ptr<Shop>							shop{};
-	int											count{};
-	Wt::Dbo::collection<Wt::Dbo::ptr<Sale>>		sales{};
+	Wt::Dbo::ptr<Book> book{};
+	Wt::Dbo::ptr<Shop> shop{};
+	int	count{};
+	Wt::Dbo::collection<Wt::Dbo::ptr<Sale>>	sales{};
 
 	template <typename Action>
 	void persist(Action& a) {
